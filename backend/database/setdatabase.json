@@ -1,0 +1,563 @@
+[
+  { 
+    "id": 1,
+    "color": "red",
+    "shape": "oval", 
+    "number": 1,
+    "filler": "solid" },
+  {
+    "id": 2,
+    "color": "red",
+    "shape": "oval",
+    "number": 1,
+    "filler": "striped"
+  },
+  { 
+    "id": 3, 
+    "color": "red", 
+    "shape": "oval", 
+    "number": 1, 
+    "filler": "empty" },
+  { 
+    "id": 4, 
+    "color": "red", 
+    "shape": "oval", 
+    "number": 2, 
+    "filler": "solid" },
+  {
+    "id": 5,
+    "color": "red",
+    "shape": "oval",
+    "number": 2,
+    "filler": "striped"
+  },
+  { 
+    "id": 6, 
+    "color": "red", 
+    "shape": "oval", 
+    "number": 2, 
+    "filler": "empty" },
+  { 
+    "id": 7, 
+    "color": "red", 
+    "shape": "oval", 
+    "number": 3, 
+    "filler": "solid" },
+  {
+    "id": 8,
+    "color": "red",
+    "shape": "oval",
+    "number": 3,
+    "filler": "striped"
+  },
+  { 
+    "id": 9, 
+    "color": "red", 
+    "shape": "oval", 
+    "number": 3, 
+    "filler": "empty" },
+  {
+    "id": 10,
+    "color": "red",
+    "shape": "diamond",
+    "number": 1,
+    "filler": "solid"
+  },
+  {
+    "id": 11,
+    "color": "red",
+    "shape": "diamond",
+    "number": 1,
+    "filler": "striped"
+  },
+  {
+    "id": 12,
+    "color": "red",
+    "shape": "diamond",
+    "number": 1,
+    "filler": "empty"
+  },
+  {
+    "id": 13,
+    "color": "red",
+    "shape": "diamond",
+    "number": 2,
+    "filler": "solid"
+  },
+  {
+    "id": 14,
+    "color": "red",
+    "shape": "diamond",
+    "number": 2,
+    "filler": "striped"
+  },
+  {
+    "id": 15,
+    "color": "red",
+    "shape": "diamond",
+    "number": 2,
+    "filler": "empty"
+  },
+  {
+    "id": 16,
+    "color": "red",
+    "shape": "diamond",
+    "number": 3,
+    "filler": "solid"
+  },
+  {
+    "id": 17,
+    "color": "red",
+    "shape": "diamond",
+    "number": 3,
+    "filler": "striped"
+  },
+  {
+    "id": 18,
+    "color": "red",
+    "shape": "diamond",
+    "number": 3,
+    "filler": "empty"
+  },
+  {
+    "id": 19,
+    "color": "red",
+    "shape": "squiggle",
+    "number": 1,
+    "filler": "solid"
+  },
+  {
+    "id": 20,
+    "color": "red",
+    "shape": "squiggle",
+    "number": 1,
+    "filler": "striped"
+  },
+  {
+    "id": 21,
+    "color": "red",
+    "shape": "squiggle",
+    "number": 1,
+    "filler": "empty"
+  },
+  {
+    "id": 22,
+    "color": "red",
+    "shape": "squiggle",
+    "number": 2,
+    "filler": "solid"
+  },
+  {
+    "id": 23,
+    "color": "red",
+    "shape": "squiggle",
+    "number": 2,
+    "filler": "striped"
+  },
+  {
+    "id": 24,
+    "color": "red",
+    "shape": "squiggle",
+    "number": 2,
+    "filler": "empty"
+  },
+  {
+    "id": 25,
+    "color": "red",
+    "shape": "squiggle",
+    "number": 3,
+    "filler": "solid"
+  },
+  {
+    "id": 26,
+    "color": "red",
+    "shape": "squiggle",
+    "number": 3,
+    "filler": "striped"
+  },
+  {
+    "id": 27,
+    "color": "red",
+    "shape": "squiggle",
+    "number": 3,
+    "filler": "empty"
+  },
+  {
+    "id": 28,
+    "color": "green",
+    "shape": "oval",
+    "number": 1,
+    "filler": "solid"
+  },
+  {
+    "id": 29,
+    "color": "green",
+    "shape": "oval",
+    "number": 1,
+    "filler": "striped"
+  },
+  {
+    "id": 30,
+    "color": "green",
+    "shape": "oval",
+    "number": 1,
+    "filler": "empty"
+  },
+  {
+    "id": 31,
+    "color": "green",
+    "shape": "oval",
+    "number": 2,
+    "filler": "solid"
+  },
+  {
+    "id": 32,
+    "color": "green",
+    "shape": "oval",
+    "number": 2,
+    "filler": "striped"
+  },
+  {
+    "id": 33,
+    "color": "green",
+    "shape": "oval",
+    "number": 2,
+    "filler": "empty"
+  },
+  {
+    "id": 34,
+    "color": "green",
+    "shape": "oval",
+    "number": 3,
+    "filler": "solid"
+  },
+  {
+    "id": 35,
+    "color": "green",
+    "shape": "oval",
+    "number": 3,
+    "filler": "striped"
+  },
+  {
+    "id": 36,
+    "color": "green",
+    "shape": "oval",
+    "number": 3,
+    "filler": "empty"
+  },
+  {
+    "id": 37,
+    "color": "green",
+    "shape": "diamond",
+    "number": 1,
+    "filler": "solid"
+  },
+  {
+    "id": 38,
+    "color": "green",
+    "shape": "diamond",
+    "number": 1,
+    "filler": "striped"
+  },
+  {
+    "id": 39,
+    "color": "green",
+    "shape": "diamond",
+    "number": 1,
+    "filler": "empty"
+  },
+  {
+    "id": 40,
+    "color": "green",
+    "shape": "diamond",
+    "number": 2,
+    "filler": "solid"
+  },
+  {
+    "id": 41,
+    "color": "green",
+    "shape": "diamond",
+    "number": 2,
+    "filler": "striped"
+  },
+  {
+    "id": 42,
+    "color": "green",
+    "shape": "diamond",
+    "number": 2,
+    "filler": "empty"
+  },
+  {
+    "id": 43,
+    "color": "green",
+    "shape": "diamond",
+    "number": 3,
+    "filler": "solid"
+  },
+  {
+    "id": 44,
+    "color": "green",
+    "shape": "diamond",
+    "number": 3,
+    "filler": "striped"
+  },
+  {
+    "id": 45,
+    "color": "green",
+    "shape": "diamond",
+    "number": 3,
+    "filler": "empty"
+  },
+  {
+    "id": 46,
+    "color": "purple",
+    "shape": "oval",
+    "number": 1,
+    "filler": "solid"
+  },
+  {
+    "id": 47,
+    "color": "purple",
+    "shape": "oval",
+    "number": 1,
+    "filler": "striped"
+  },
+  {
+    "id": 48,
+    "color": "purple",
+    "shape": "oval",
+    "number": 1,
+    "filler": "empty"
+  },
+  {
+    "id": 49,
+    "color": "purple",
+    "shape": "oval",
+    "number": 2,
+    "filler": "solid"
+  },
+  {
+    "id": 50,
+    "color": "purple",
+    "shape": "oval",
+    "number": 2,
+    "filler": "striped"
+  },
+  {
+    "id": 51,
+    "color": "purple",
+    "shape": "oval",
+    "number": 2,
+    "filler": "empty"
+  },
+  {
+    "id": 52,
+    "color": "purple",
+    "shape": "oval",
+    "number": 3,
+    "filler": "solid"
+  },
+  {
+    "id": 53,
+    "color": "purple",
+    "shape": "oval",
+    "number": 3,
+    "filler": "striped"
+  },
+  {
+    "id": 54,
+    "color": "purple",
+    "shape": "oval",
+    "number": 3,
+    "filler": "empty"
+  },
+  {
+    "id": 55,
+    "color": "purple",
+    "shape": "squiggle",
+    "number": 1,
+    "filler": "solid"
+  },
+  {
+    "id": 56,
+    "color": "purple",
+    "shape": "squiggle",
+    "number": 1,
+    "filler": "striped"
+  },
+  {
+    "id": 57,
+    "color": "purple",
+    "shape": "squiggle",
+    "number": 1,
+    "filler": "empty"
+  },
+  {
+    "id": 58,
+    "color": "purple",
+    "shape": "squiggle",
+    "number": 2,
+    "filler": "solid"
+  },
+  {
+    "id": 59,
+    "color": "purple",
+    "shape": "squiggle",
+    "number": 2,
+    "filler": "striped"
+  },
+  {
+    "id": 60,
+    "color": "purple",
+    "shape": "squiggle",
+    "number": 2,
+    "filler": "empty"
+  },
+  {
+    "id": 61,
+    "color": "purple",
+    "shape": "squiggle",
+    "number": 3,
+    "filler": "solid"
+  },
+  {
+    "id": 62,
+    "color": "purple",
+    "shape": "squiggle",
+    "number": 3,
+    "filler": "striped"
+  },
+  {
+    "id": 63,
+    "color": "purple",
+    "shape": "squiggle",
+    "number": 3,
+    "filler": "empty"
+  },
+  {
+    "id": 64,
+    "color": "blue",
+    "shape": "oval",
+    "number": 1,
+    "filler": "solid"
+  },
+  {
+    "id": 65,
+    "color": "blue",
+    "shape": "oval",
+    "number": 1,
+    "filler": "striped"
+  },
+  {
+    "id": 66,
+    "color": "blue",
+    "shape": "oval",
+    "number": 1,
+    "filler": "empty"
+  },
+  {
+    "id": 67,
+    "color": "blue",
+    "shape": "oval",
+    "number": 2,
+    "filler": "solid"
+  },
+  {
+    "id": 68,
+    "color": "blue",
+    "shape": "oval",
+    "number": 2,
+    "filler": "striped"
+  },
+  {
+    "id": 69,
+    "color": "blue",
+    "shape": "oval",
+    "number": 2,
+    "filler": "empty"
+  },
+  {
+    "id": 70,
+    "color": "blue",
+    "shape": "oval",
+    "number": 3,
+    "filler": "solid"
+  },
+  {
+    "id": 71,
+    "color": "blue",
+    "shape": "oval",
+    "number": 3,
+    "filler": "striped"
+  },
+  {
+    "id": 72,
+    "color": "blue",
+    "shape": "oval",
+    "number": 3,
+    "filler": "empty"
+  },
+  {
+    "id": 73,
+    "color": "blue",
+    "shape": "diamond",
+    "number": 1,
+    "filler": "solid"
+  },
+  {
+    "id": 74,
+    "color": "blue",
+    "shape": "diamond",
+    "number": 1,
+    "filler": "striped"
+  },
+  {
+    "id": 75,
+    "color": "blue",
+    "shape": "diamond",
+    "number": 1,
+    "filler": "empty"
+  },
+  {
+    "id": 76,
+    "color": "blue",
+    "shape": "diamond",
+    "number": 2,
+    "filler": "solid"
+  },
+  {
+    "id": 77,
+    "color": "blue",
+    "shape": "diamond",
+    "number": 2,
+    "filler": "striped"
+  },
+  {
+    "id": 78,
+    "color": "blue",
+    "shape": "diamond",
+    "number": 2,
+    "filler": "empty"
+  },
+  {
+    "id": 79,
+    "color": "blue",
+    "shape": "diamond",
+    "number": 3,
+    "filler": "solid"
+  },
+  {
+    "id": 80,
+    "color": "blue",
+    "shape": "diamond",
+    "number": 3,
+    "filler": "striped"
+  },
+  {
+    "id": 81,
+    "color": "blue",
+    "shape": "diamond",
+    "number": 3,
+    "filler": "empty"
+  }
+]
