@@ -14,6 +14,14 @@ type User = {
   password: string
 }
 
+type Set = {
+  id: number
+  color: string
+  shape: string
+  number: number
+  filler: string
+}
+
 const loadDB = async (filename: string) => {
   try {
     const rawData = await fs.readFile(`${__dirname}/../database/${filename}.json`, 'utf-8')
@@ -54,6 +62,26 @@ app.get("/api/check", async (req, res) => {
   const userAlreadyExists = users.some(user => user.email === queryParams.email)
 
   res.json({ exists: userAlreadyExists })
+})
+
+const SetQueryParams = z.object ({
+  id: z.number(),
+  color: z.string(),
+  shape: z.string(), 
+  number: z.number(),
+  filler: z.string()
+})
+
+app.get("/api/sets", async (req, res) => {
+  /* const result = SetQueryParams.safeParse(req.query)
+  if (!result.success)
+    return res.sendStatus(400) */
+  
+  const setdatabase: Set[] = await loadDB("setdatabase")
+  if (!setdatabase)
+  return res.sendStatus(500)
+  res.json(setdatabase)
+
 })
 
 const PostRequest = z.object({
