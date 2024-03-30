@@ -8,13 +8,13 @@ export const CardSchema = z.object ({
   number: z.number(),
   filler: z.string()
 })
-
+export const CardsArraySchema = z.array(CardSchema);
 
   export const getCard = async () => {
     return await safeFetch({
       path: '/api/sets',
       method: 'GET',
       data: {}
-    }, CardSchema);
+    }, CardsArraySchema);
   }
 

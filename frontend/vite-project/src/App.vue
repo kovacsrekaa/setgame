@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { getCard, CardSchema } from "./index";
+import { getCard, CardsArraySchema } from "./index";
 
 type Card = {
   id: number
@@ -16,6 +16,7 @@ const cards = ref<Card[]>([]);
 
 const fetchCards = async () => {
   const response = await getCard();
+  console.log()
 
   if (!response.success) {
     alert(response.status);
@@ -29,7 +30,7 @@ const fetchCards = async () => {
   if (!response) return;
 
   const products = response.data;
-  const result = CardSchema.array().safeParse(products);
+  const result = CardsArraySchema.safeParse(products);
 
   if (!result.success) {
     alert("Oops");

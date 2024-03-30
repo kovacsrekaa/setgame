@@ -14,13 +14,13 @@ type User = {
   password: string
 }
 
-type Set = {
+/* type Set = {
   id: number
   color: string
   shape: string
   number: number
   filler: string
-}
+} */
 
 const loadDB = async (filename: string) => {
   try {
@@ -64,20 +64,21 @@ app.get("/api/check", async (req, res) => {
   res.json({ exists: userAlreadyExists })
 })
 
-const SetQueryParams = z.object ({
+const CardSchema = z.object ({
   id: z.number(),
   color: z.string(),
   shape: z.string(), 
   number: z.number(),
   filler: z.string()
 })
+type Card = z.infer<typeof CardSchema>
 
 app.get("/api/sets", async (req, res) => {
   /* const result = SetQueryParams.safeParse(req.query)
   if (!result.success)
     return res.sendStatus(400) */
   
-  const setdatabase: Set[] = await loadDB("setdatabase")
+  const setdatabase: Card[] = await loadDB("setdatabase")
   if (!setdatabase)
   return res.sendStatus(500)
   res.json(setdatabase)
