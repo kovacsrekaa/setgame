@@ -35,7 +35,7 @@ export const safeFetch = async <Schema extends z.ZodTypeAny>(
             'auth': token || "",
           }
         : { 'auth': token || "", },
-      body: data ? JSON.stringify(data) : undefined,
+      body: method !== 'GET'  ? JSON.stringify(data) : undefined,
     });
   } catch (error) {
     return {
