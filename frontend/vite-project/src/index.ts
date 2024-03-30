@@ -12,8 +12,8 @@ export const CardSchema = z.object ({
 
   export const getCard = async () => {
     return await safeFetch({
-      method: 'GET',
       path: '/api/sets',
+      method: 'GET',
       data: {}
     }, CardSchema);
   }
