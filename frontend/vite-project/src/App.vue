@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { getCard, CardsArraySchema } from "./index";
+import { ref, Ref } from "vue";
+import { getCard, CardsArraySchema, signup } from "./index";
+import { z } from "zod";
 
 type Card = {
   id: number
@@ -9,7 +10,6 @@ type Card = {
   number: number
   filler: string
 }
-
 
 const cards = ref<Card[]>([]);
 
@@ -39,23 +39,37 @@ const fetchCards = async () => {
 
   cards.value = result.data;
 };
+
+const username = ref("")
+const password = ref("")
+
+type SuccessType = boolean | null 
+let success: Ref<SuccessType | null> = ref(null)
+
+const handleSignup = async () => {
+  const response = await signup(username.value, password.value)
+  if (response.status === 200) {
+    success.value = true
+  } else {
+    success.value = false
+  }
+}
+
 </script>
 
 <template>
-  <div>
-    <button @click="fetchCards">Fetch Cards</button>
-    <div v-if="cards.length > 0">
-      <div v-for="card in cards" :key="card.id" class="card">
-        <div class="card-id">{{ card.id }}</div>
-        <div class="card-color">{{ card.color }}</div>
-        <div class="card-shape">{{ card.shape }}</div>
-        <div class="card-number">{{ card.number }}</div>
-        <div class="card-filler">{{ card.filler }}</div>
-      </div>
-    </div>
-    <div v-else>
-      No cards available.
-    </div>
-  </div>
+  <main class="flex justify-center py-16">
+    <section class="card card-body max-w-[400px] bg-secondary text-secondary-content">
+      <input v-model="username" class="input input-bordered"type="text" placeholder="Name" >
+      <input v-model="password" class="input input-bordered" type="password" placeholder="Password">
+      <button @click="handleSignup" class="btn btn-success">Signup</button>
+    </section>
+    <section v-if="success === true" class="alert flex justify-between alert-success max-w-96">
+      <button @click="success = null" class="btn btn-ghost">Success</button>
+    </section>
+    <section v-if="success === false" class="alert flex justify-between alert-success max-w-96">
+      <button @click="success = null" class="btn btn-ghost" >Error</button>
+    </section>
+  </main>
 </template>
 

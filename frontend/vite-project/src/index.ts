@@ -17,4 +17,8 @@ export const CardsArraySchema = z.array(CardSchema);
       data: {}
     }, CardsArraySchema);
   }
-
+export const signup = (username:string, password: string) => safeFetch({
+  method: "POST",
+  path: "/api/signup",
+  data: {username,password}
+}, z.object({id: z.string()}))

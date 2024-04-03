@@ -2,17 +2,14 @@ import express from "express"
 import cors from "cors"
 import { z } from "zod"
 import fs from "fs/promises"
+import { UserSchema, CardSchema} from "./model"
+import { save, load } from "./util/db"
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 
-type User = {
-  id: number
-  email: string
-  password: string
-}
 
 /* type Set = {
   id: number
@@ -22,101 +19,48 @@ type User = {
   filler: string
 } */
 
-const loadDB = async (filename: string) => {
-  try {
-    const rawData = await fs.readFile(`${__dirname}/../database/${filename}.json`, 'utf-8')
-    const data = JSON.parse(rawData)
-    return data 
-  } catch (error) {
-    return null
-  }
-}
 
-const saveDB = async (filename: string, data: any) => {
-  try {
-    const fileContent = JSON.stringify(data)
-    await fs.writeFile(`${__dirname}/../database/${filename}.json`, fileContent)
-    return true
-  } catch (error) {
-    return false
-  }
-}
-
-const QueryParams = z.object({
-  email: z.string().email()
-})
-
-
-app.get("/api/check", async (req, res) => {
-
-
-  const result = QueryParams.safeParse(req.query)
-  if (!result.success)
-    return res.sendStatus(400)
-  const queryParams = result.data
-
-  const users: User[] = await loadDB("users")
-  if (!users)
-    return res.sendStatus(500)
-
-  const userAlreadyExists = users.some(user => user.email === queryParams.email)
-
-  res.json({ exists: userAlreadyExists })
-})
-
-const CardSchema = z.object ({
-  id: z.number(),
-  color: z.string(),
-  shape: z.string(), 
-  number: z.number(),
-  filler: z.string()
-})
-type Card = z.infer<typeof CardSchema>
 
 app.get("/api/sets", async (req, res) => {
   /* const result = SetQueryParams.safeParse(req.query)
   if (!result.success)
     return res.sendStatus(400) */
   
-  const setdatabase: Card[] = await loadDB("setdatabase")
+  const setdatabase = await load("setdatabase", CardSchema.array())
   if (!setdatabase)
   return res.sendStatus(500)
   res.json(setdatabase)
 
 })
 
-const PostRequest = z.object({
-  email: z.string().email(),
-  password: z.string().min(5),
-  passwordAgain: z.string(),
+const SignupRequestSchema = z.object({
+  name: z.string().min(3),
+  password: z.string().min(3),
 })
 
 app.post("/api/signup", async (req, res) => {
-
-  const result = PostRequest.safeParse(req.body)
+  const result = SignupRequestSchema.safeParse(req.body)
   if (!result.success)
     return res.sendStatus(400)
-  const postData = result.data
-  const { email, password, passwordAgain } = postData
+  const { name, password } = result.data
 
-  if (password !== passwordAgain)
-    return res.sendStatus(400)
-
-  const users: User[] = await loadDB("users")
+  const users = await load("users", UserSchema.array())
   if (!users)
     return res.sendStatus(500)
 
-  const userAlreadyExists = users.some(user => user.email === email)
-  if (userAlreadyExists)
+  const userExists = users.some(user => user.name === name)
+  if (userExists)
     return res.sendStatus(409)
 
   const id = Math.random()
-  const isSuccessful = await saveDB("users", [ ...users, { id, email, password } ])
+  
+  users.push({ id, name, password })
 
-  if (!isSuccessful)
+  const isCreated = await save("users", users, UserSchema.array())
+  if (!isCreated)
     return res.sendStatus(500)
-
-  res.json({ id })
+  
+  return res.json({ id })
 })
 
 app.listen(3500)
