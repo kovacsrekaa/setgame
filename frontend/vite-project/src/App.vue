@@ -40,14 +40,14 @@ const fetchCards = async () => {
   cards.value = result.data;
 };
 
-const username = ref("")
+const name = ref("")
 const password = ref("")
 
 type SuccessType = boolean | null 
 let success: Ref<SuccessType | null> = ref(null)
 
 const handleSignup = async () => {
-  const response = await signup(username.value, password.value)
+  const response = await signup(name.value, password.value)
   if (response.status === 200) {
     success.value = true
   } else {
@@ -60,15 +60,17 @@ const handleSignup = async () => {
 <template>
   <main class="flex justify-center py-16">
     <section class="card card-body max-w-[400px] bg-secondary text-secondary-content">
-      <input v-model="username" class="input input-bordered"type="text" placeholder="Name" >
+      <input v-model="name" class="input input-bordered"type="text" placeholder="Name" >
       <input v-model="password" class="input input-bordered" type="password" placeholder="Password">
       <button @click="handleSignup" class="btn btn-success">Signup</button>
     </section>
     <section v-if="success === true" class="alert flex justify-between alert-success max-w-96">
-      <button @click="success = null" class="btn btn-ghost">Success</button>
+      Success!
+      <button @click="success = null" class="btn btn-ghost">Close</button>
     </section>
-    <section v-if="success === false" class="alert flex justify-between alert-success max-w-96">
-      <button @click="success = null" class="btn btn-ghost" >Error</button>
+    <section v-if="success === false" class="alert flex justify-between alert-error max-w-96">
+      Error!
+      <button @click="success = null" class="btn btn-ghost" >Close</button>
     </section>
   </main>
 </template>
