@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, Ref } from "vue";
-import { getCard, CardsArraySchema, signup } from "./index";
-import { z } from "zod";
+import { getCard, CardsArraySchema, signup, login, createGame } from "./index";
+
+
 
 type Card = {
   id: number
@@ -44,34 +45,71 @@ const name = ref("")
 const password = ref("")
 
 type SuccessType = boolean | null 
-let success: Ref<SuccessType | null> = ref(null)
+let Signupsuccess: Ref<SuccessType | null> = ref(null)
+let Loginsuccess: Ref<SuccessType | null> = ref(null)
 
 const handleSignup = async () => {
   const response = await signup(name.value, password.value)
   if (response.status === 200) {
-    success.value = true
+    Signupsuccess.value = true
   } else {
-    success.value = false
+    Signupsuccess.value = false
   }
 }
+
+const handleLogin = async () => {
+  const response = await login(name.value, password.value) 
+  if (response.success){
+    Loginsuccess.value = true
+    localStorage.setItem('token',response.data.token)
+  } else {
+    Loginsuccess.value   = false
+  }
+}
+
+const handleCreate = async () => {
+   const response = await createGame()
+   console.log(response)
+}
+
+const logout = async () => {
+  localStorage.removeItem('token')
+  Loginsuccess.value = null
+}
+
 
 </script>
 
 <template>
-  <main class="flex justify-center py-16">
-    <section class="card card-body max-w-[400px] bg-secondary text-secondary-content">
-      <input v-model="name" class="input input-bordered"type="text" placeholder="Name" >
+  <main v-if="!Loginsuccess" class="flex justify-center py-16">
+    <section class="card card-body max-w-[400px] bg-secondary ">
+      <img src="./assets/set.png">
+      <input v-model="name" class="input input-bordered mt-5 "type="text" placeholder="Name" >
       <input v-model="password" class="input input-bordered" type="password" placeholder="Password">
-      <button @click="handleSignup" class="btn btn-success">Signup</button>
+      <button @click="handleLogin" class="btn btn-success mt-5 ">Login</button>
+      <button @click="handleSignup" class="btn btn-success">Sign up</button>
     </section>
-    <section v-if="success === true" class="alert flex justify-between alert-success max-w-96">
+    <section v-if="Signupsuccess === true" class="alert flex justify-between alert-success max-w-96">
       Success!
-      <button @click="success = null" class="btn btn-ghost">Close</button>
+      <button @click="Signupsuccess = null" class="btn btn-ghost">Close</button>
     </section>
-    <section v-if="success === false" class="alert flex justify-between alert-error max-w-96">
+    <section v-if="Signupsuccess === false" class="alert flex justify-between alert-error max-w-96">
       Error!
-      <button @click="success = null" class="btn btn-ghost" >Close</button>
+      <button @click="Signupsuccess = null" class="btn btn-ghost" >Close</button>
     </section>
+    <section v-if="Loginsuccess === false">
+      Error!
+      <button @click="Loginsuccess = null" class="btn btn-ghost" >Close</button>
+    </section>
+  </main>
+
+
+  <main v-if="Loginsuccess" class="flex justify-center py-16">
+    <section class="alert alert-success flex justify-between max-w-[300px]">
+      You are logged in!
+    </section>
+    <button @click="handleCreate()" class="btn btn-ghost">Start Game</button>
+    <button @click="logout()" class="btn btn-ghost">Logout</button>
   </main>
 </template>
 

@@ -1,7 +1,17 @@
 [
   {
-    "id": 0.2113419347556882,
-    "name": "valami",
-    "password": "valami"
+    "id": 0.7367366277368157,
+    "name": "elsouser",
+    "password": "$2b$10$cfT2wA3mDR3MzLX.0BMyCexgKyvC6jULLd0gvBNkC/8FsItERGg7q"
+  },
+  {
+    "id": 0.7256100779524246,
+    "name": "1234",
+    "password": "$2b$10$XYsHnsCyvVS0ohtv3ROd9O4MC3Y8isJ0ki05mMh1HcKdekn5KSmQu"
+  },
+  {
+    "id": 0.517677129182964,
+    "name": "12345",
+    "password": "$2b$10$pqMKRxg738xCVKLCZ7tmgulsMiAZz2haQRams0IXXY3fnZGyY6.YC"
   }
 ]
